@@ -52,9 +52,9 @@ class Admin(Base):
         :param is_grafana_admin:
         :return:
         """
-        change_user_permissions = "/admin/users/%s/permissions" % user_id
+        change_user_permissions_path = "/admin/users/%s/permissions" % user_id
         r = self.api.PUT(
-            change_user_permissions, json={"isGrafanaAdmin": is_grafana_admin}
+            change_user_permissions_path, json={"isGrafanaAdmin": is_grafana_admin}
         )
         return r
 
@@ -74,6 +74,6 @@ class Admin(Base):
         :param pause:
         :return:
         """
-        change_user_permissions = "/admin/pause-all-alerts"
-        r = self.api.POST(change_user_permissions, json={"paused": pause})
+        pause_all_alerts_path = "/admin/pause-all-alerts"
+        r = self.api.POST(pause_all_alerts_path, json={"paused": pause})
         return r

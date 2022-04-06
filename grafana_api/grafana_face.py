@@ -1,6 +1,7 @@
 from .grafana_api import GrafanaAPI
 from .api import (
     Admin,
+    Alerts,
     Dashboard,
     Datasource,
     Folder,
@@ -37,6 +38,7 @@ class GrafanaFace:
             timeout=timeout,
         )
         self.admin = Admin(self.api)
+        self.alerts = Alerts(self.api)
         self.dashboard = Dashboard(self.api)
         self.datasource = Datasource(self.api)
         self.folder = Folder(self.api)
